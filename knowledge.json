@@ -1,0 +1,33 @@
+{
+  "articles": [
+    {
+      "id": 1785905833809,
+      "title": "Developer App.",
+      "category": "General",
+      "keywords": [
+        "developer",
+        "dev",
+        "apply",
+        "application",
+        "lua",
+        "roblox"
+      ],
+      "content": "To become a Developer, apply in #applications. You need experience with Roblox Studio and Lua.",
+      "uses": 8,
+      "createdBy": "1380554961414258709",
+      "createdAt": 1785905833809
+    },
+    {
+      "id": 1785939619477,
+      "title": "Beta and game release",
+      "category": "General",
+      "keywords": [
+        "Beta Game Release When"
+      ],
+      "content": "Beta is planned to be released during late 2026 or early 2027. The development team focuses on quality, instead of deadlines.",
+      "uses": 3,
+      "createdBy": "1380554961414258709",
+      "createdAt": 1785939619477
+    }
+  ]
+}

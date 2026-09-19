@@ -1,0 +1,194 @@
+{
+  "counter": 21,
+  "tasks": [
+    {
+      "id": 1,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "More commands",
+      "completed": true,
+      "created": 1784892279505
+    },
+    {
+      "id": 2,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "Test",
+      "completed": true,
+      "created": 1784901988455
+    },
+    {
+      "id": 3,
+      "userId": "1380554961414258709",
+      "assignedBy": "1161275626053976146",
+      "task": "work on the bot",
+      "completed": true,
+      "created": 1784907145428
+    },
+    {
+      "id": 4,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "Add an log system to the bot",
+      "completed": true,
+      "created": 1784907757809
+    },
+    {
+      "id": 5,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "test",
+      "completed": true,
+      "created": 1784994998287
+    },
+    {
+      "id": 6,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "Make Logo to a tuning store in RC.",
+      "completed": true,
+      "created": 1785161867320
+    },
+    {
+      "id": 7,
+      "userId": "1380554961414258709",
+      "assignedBy": "1161275626053976146",
+      "task": "Make a Logo for the tuning shop in Redwood City.",
+      "completed": true,
+      "created": 1785161936683,
+      "lastRemindedAt": 1787470598094
+    },
+    {
+      "id": 8,
+      "userId": "1380554961414258709",
+      "assignedBy": "1161275626053976146",
+      "task": "Since you want to design a building, you can try designing a motel.",
+      "completed": true,
+      "created": 1785241234440
+    },
+    {
+      "id": 9,
+      "userId": "1161275626053976146",
+      "assignedBy": "1161275626053976146",
+      "task": "Finish the exterior of all the cars in the parking lot.",
+      "completed": true,
+      "created": 1785257920603,
+      "lastRemindedAt": 1788188147848
+    },
+    {
+      "id": 10,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "Make a logo for the motell in RC.",
+      "completed": true,
+      "created": 1785396966144
+    },
+    {
+      "id": 11,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "Make a logo for the motell in RC.",
+      "completed": true,
+      "created": 1785396966154
+    },
+    {
+      "id": 12,
+      "userId": "1380554961414258709",
+      "assignedBy": "1161275626053976146",
+      "task": "Make the invite banner and animated logo",
+      "completed": false,
+      "created": 1785425939977,
+      "lastRemindedAt": 1789754059805
+    },
+    {
+      "id": 13,
+      "userId": "800396392530182185",
+      "assignedBy": "1416907151724777532",
+      "task": "/assign user:<@800396392530182185> task:Make a trailer. Options:\n- [Regular Trailer](https://share.google/ai6bIIVq7k12UgiOP)\n- [Small trailer](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhrBdwt317zqaLmeDhfM82Sne259pn2Fxij42dxL1OX7taw_NGvse24UE&s=10)\n- [Boat Trailer](https://share.google/q0lxC0FZeuLMewXrZ)\n\n*Please note that all these trailer have to be made, but you have got much time to make them, so just choose when you will start and with which one.*",
+      "completed": false,
+      "created": 1785429497057,
+      "lastRemindedAt": 1788771291115
+    },
+    {
+      "id": 14,
+      "userId": "800396392530182185",
+      "assignedBy": "1416907151724777532",
+      "task": "Make the Tuning Shop, all details are already known to you.",
+      "completed": false,
+      "created": 1785429870678,
+      "lastRemindedAt": 1788771291115
+    },
+    {
+      "id": 15,
+      "userId": "1380554961414258709",
+      "assignedBy": "1380554961414258709",
+      "task": "test",
+      "completed": true,
+      "created": 1785430515899,
+      "lastRemindedAt": 1787470598094
+    },
+    {
+      "id": 16,
+      "userId": "1416907151724777532",
+      "assignedBy": "1416907151724777532",
+      "task": "Testing this feature",
+      "completed": true,
+      "created": 1785431278119
+    },
+    {
+      "id": 17,
+      "userId": "1030877362033795072",
+      "assignedBy": "1161275626053976146",
+      "task": "Fix all the roles at the website. https://redwood.lostsmp.win/",
+      "guildId": "1446500024736546939",
+      "channelId": "1530236617388720209",
+      "completed": true,
+      "created": 1788095862905,
+      "lastRemindedAt": 1788104651062
+    },
+    {
+      "id": 18,
+      "userId": "1380554961414258709",
+      "assignedBy": "707962646904832070",
+      "task": "Make the /tasks command by pages ( 10 each I think is good)",
+      "guildId": "1446500024736546939",
+      "channelId": "1530236617388720209",
+      "completed": false,
+      "created": 1788104970412,
+      "lastRemindedAt": 1789754059805
+    },
+    {
+      "id": 19,
+      "userId": "1030877362033795072",
+      "assignedBy": "1030877362033795072",
+      "task": "New website domain (LONG TASK)",
+      "guildId": "1446500024736546939",
+      "channelId": "1530236617388720209",
+      "completed": false,
+      "created": 1788105007480,
+      "lastRemindedAt": 1789754061011
+    },
+    {
+      "id": 20,
+      "userId": "1161275626053976146",
+      "assignedBy": "1161275626053976146",
+      "task": "Remove all the badges and copyright things from cars.",
+      "guildId": "1446500024736546939",
+      "channelId": "1530236617388720209",
+      "completed": true,
+      "created": 1788188183550,
+      "lastRemindedAt": 1788613404450
+    },
+    {
+      "id": 21,
+      "userId": "1161275626053976146",
+      "assignedBy": "1161275626053976146",
+      "task": "Make a list of cars that need a tow hitch.",
+      "guildId": "1446500024736546939",
+      "channelId": "1530236617388720209",
+      "completed": true,
+      "created": 1788188197392,
+      "lastRemindedAt": 1788771295080
+    }
+  ]
+}

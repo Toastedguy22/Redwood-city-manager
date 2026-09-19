@@ -1,0 +1,16 @@
+{
+  "name": "suggestion-bot",
+  "version": "1.0.0",
+  "description": "Discord suggestion bot with upvote system",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "register": "node register-commands.js",
+    "check": "node --check index.js && node --check register-commands.js && node --check counting.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.27.0",
+    "dotenv": "^17.4.2"
+  }
+}

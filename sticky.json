@@ -1,0 +1,14 @@
+{
+  "1527042332426244147": {
+    "message": "test",
+    "lastMessage": "1533163428930256988"
+  },
+  "1446928004700704789": {
+    "message": "💡 **Suggestion Submission Guidelines**  \nTo help us review and implement your ideas efficiently, please follow these instructions:\n\n- **Use `/suggest`** – All suggestions **must** be submitted using the **`/suggest`** command provided by **Redwood City Manager**. Suggestions sent as regular messages **will not be reviewed**.\n- **Limit per submission** – Each submission may contain **up to 5 suggestions**. This helps us organize and track ideas more efficiently.\n- **Be clear and specific** – Describe your suggestion in detail, including what it is, how it would work, and why it would improve the game.\n- **Provide context if needed** – Mention if your suggestion relates to a specific feature, system, or gameplay scenario.\n- **Stay respectful and constructive** – Focus on improving the game and avoid unrelated commentary or complaints.\n\nFollowing these guidelines ensures your suggestions are properly reviewed and considered. Thank you for helping us improve Redwood City!",
+    "lastMessage": "1546564958425448681"
+  },
+  "1457471626554904659": {
+    "message": "📌 **Bug Report Guidelines**  \nTo ensure your report is addressed quickly and effectively, please follow these instructions:\n\n- **Provide clear evidence** – Include a screenshot, screen recording, or video showing the bug in action. Reports without proof may take longer to verify.  \n- **Explain step by step** – Detail exactly how to reproduce the issue. Include what you did, what you expected to happen, and what actually happened.  \n- **Include relevant details** – Mention the device, platform, game version, or any other context that may help the team replicate the issue.  \n- **Keep it concise but thorough** – Avoid extra commentary; focus on the bug itself.  \n\nFollowing these steps ensures your report gets noticed and increases the chance it will be fixed promptly. Thank you for helping us maintain a smooth experience for everyone.",
+    "lastMessage": "1540773933052076118"
+  }
+}
