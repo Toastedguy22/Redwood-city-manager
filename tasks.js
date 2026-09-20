@@ -1,16 +1,34 @@
 // tasks.js
-import { EmbedBuilder } from "discord.js";
+import {
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  EmbedBuilder,
+  StringSelectMenuBuilder,
+} from "discord.js";
 import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const TASK_FILE = "tasks.json";
+const TASK_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "tasks.json");
 const REMINDER_INTERVAL = 24 * 60 * 60 * 1000;
+const TASKS_PER_PAGE = 10;
 
 // ─── Database ─────────────────────────────────────────────
 
 function loadTasks() {
   try {
     if (fs.existsSync(TASK_FILE)) {
-      return JSON.parse(fs.readFileSync(TASK_FILE, "utf8"));
+      const data = JSON.parse(fs.readFileSync(TASK_FILE, "utf8"));
+      const tasks = Array.isArray(data.tasks) ? data.tasks : [];
+
+      return {
+        counter: Math.max(
+          Number.isInteger(data.counter) ? data.counter : 0,
+          ...tasks.map(task => Number.isInteger(task.id) ? task.id : 0)
+        ),
+        tasks,
+      };
     }
   } catch (err) {
     console.error("Failed loading tasks:", err);
@@ -24,13 +42,81 @@ function loadTasks() {
 
 function saveTasks(data) {
   try {
-    fs.writeFileSync(
-      TASK_FILE,
-      JSON.stringify(data, null, 2)
-    );
+    const temporaryFile = `${TASK_FILE}.tmp`;
+    fs.writeFileSync(temporaryFile, JSON.stringify(data, null, 2));
+    fs.renameSync(temporaryFile, TASK_FILE);
   } catch (err) {
     console.error("Failed saving tasks:", err);
   }
+}
+
+function buildTaskPage(data, page) {
+  const totalPages = Math.max(1, Math.ceil(data.tasks.length / TASKS_PER_PAGE));
+  const currentPage = Math.min(Math.max(page, 0), totalPages - 1);
+  const start = currentPage * TASKS_PER_PAGE;
+  const pageTasks = data.tasks.slice(start, start + TASKS_PER_PAGE);
+
+  const embed = new EmbedBuilder()
+    .setColor(0x5865F2)
+    .setTitle("📋 All Tasks")
+    .setFooter({ text: `Page ${currentPage + 1} of ${totalPages} • ${data.tasks.length} total tasks` });
+
+  for (const task of pageTasks) {
+    embed.addFields({
+      name: `#${task.id} ${task.completed ? "✅ Completed" : "⏳ Pending"}`,
+      value: `👤 <@${task.userId}>\n📝 ${task.task}`,
+    });
+  }
+
+  const components = [];
+  if (totalPages > 1) {
+    const pageMenu = new StringSelectMenuBuilder()
+      .setCustomId("task_page_select")
+      .setPlaceholder("Select a task page")
+      .addOptions(
+        Array.from({ length: Math.min(totalPages, 25) }, (_, index) => ({
+          label: `Page ${index + 1}`,
+          value: String(index),
+          default: index === currentPage,
+        }))
+      );
+
+    components.push(new ActionRowBuilder().addComponents(pageMenu));
+    components.push(
+      new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+          .setCustomId("task_page_previous")
+          .setLabel("Previous")
+          .setStyle(ButtonStyle.Secondary)
+          .setDisabled(currentPage === 0),
+        new ButtonBuilder()
+          .setCustomId("task_page_next")
+          .setLabel("Next")
+          .setStyle(ButtonStyle.Secondary)
+          .setDisabled(currentPage === totalPages - 1)
+      )
+    );
+  }
+
+  return { embeds: [embed], components };
+}
+
+export async function handleTaskInteraction(interaction) {
+  const data = loadTasks();
+  const footer = interaction.message?.embeds?.[0]?.footer?.text || "";
+  const currentPage = Number(footer.match(/Page (\d+) of/)?.[1] || 1) - 1;
+  let page = currentPage;
+
+  if (interaction.customId === "task_page_select") {
+    page = Number(interaction.values[0]);
+  } else if (interaction.customId === "task_page_previous") {
+    page--;
+  } else if (interaction.customId === "task_page_next") {
+    page++;
+  }
+
+  const view = buildTaskPage(data, page);
+  await interaction.update(view);
 }
 
 
@@ -104,26 +190,11 @@ export async function handleTaskCommand(interaction) {
       });
     }
 
-    const embed = new EmbedBuilder()
-      .setColor(0x5865F2)
-      .setTitle("📋 All Tasks");
-
-
-    for (const task of data.tasks) {
-
-      embed.addFields({
-        name:
-          `#${task.id} ${task.completed ? "✅ Completed" : "⏳ Pending"}`,
-
-        value:
-          `👤 <@${task.userId}>\n` +
-          `📝 ${task.task}`
-      });
-
-    }
+    const view = buildTaskPage(data, 0);
 
     return interaction.reply({
-      embeds: [embed],
+      embeds: view.embeds,
+      components: view.components,
       flags: 64
     });
   }

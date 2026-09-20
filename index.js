@@ -16,6 +16,7 @@ import http from "http";
 
 import {
   handleTaskCommand,
+  handleTaskInteraction,
   sendTaskReminders,
   startTaskReminderSystem,
 } from "./tasks.js";
@@ -421,6 +422,11 @@ client.on(
         interaction.isButton()
       ) {
 
+        if (interaction.customId.startsWith("task_page_")) {
+          await handleTaskInteraction(interaction);
+          return;
+        }
+
         // APPLICATION START
         if (
           interaction.customId.startsWith(
@@ -469,6 +475,14 @@ client.on(
         // Other buttons
         return;
       }
+
+      if (interaction.isStringSelectMenu()) {
+        if (interaction.customId === "task_page_select") {
+          await handleTaskInteraction(interaction);
+          return;
+        }
+      }
+
       if (interaction.commandName === "startcounting") {
           startCounting(interaction.channel.id);
 
